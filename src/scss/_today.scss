@@ -1,0 +1,126 @@
+.today {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(68, 68, 255, 0.5);
+    width: 90%;
+    margin-top: 2rem;
+    margin-inline: auto;
+    padding: 0.5rem;
+    border-radius: 10px;
+
+    &__pred {
+        position: relative;
+        padding-bottom: 1.5rem;
+    }
+    &__pred::after {
+        position: absolute;
+        content: "";
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(231, 231, 231, 0.5);
+    }
+
+    &__overview {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        &-day {
+            min-width: 120px;
+        }
+
+        &-img {
+            margin-right: 1rem;
+        }
+
+        &-temp {
+            margin: auto;
+        }
+    }
+
+    &__windimg path {
+    }
+}
+
+.tempbar {
+    width: 80px;
+    background-color: #ebebeb;
+    height: 6px;
+    position: relative;
+    margin-inline: 0.5rem;
+}
+
+.temp {
+    height: 6px;
+    background-color: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.indicator {
+    height: 8px;
+    width: 8px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: -1px;
+    z-index: 20;
+}
+
+.tempbar1 {
+    width: 80px;
+    background-color: #ebebeb;
+    height: 6px;
+    position: relative;
+    margin-inline: 0.5rem;
+}
+
+.temp1 {
+    height: 6px;
+    background-color: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.indicator1 {
+    height: 8px;
+    width: 8px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: -1px;
+    z-index: 20;
+}
+
+.tempbar2 {
+    width: 80px;
+    background-color: #ebebeb;
+    height: 6px;
+    position: relative;
+    margin-inline: 0.5rem;
+}
+
+.temp2 {
+    height: 6px;
+    background-color: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.indicator2 {
+    height: 8px;
+    width: 8px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: -1px;
+    z-index: 20;
+}

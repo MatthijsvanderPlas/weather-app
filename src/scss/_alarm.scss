@@ -1,0 +1,42 @@
+.alarm {
+    background-color: rgba(255, 68, 109, 0.5);
+    width: 90%;
+    overflow: hidden;
+    max-width: 60ch;
+    max-height: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: max-height 300ms ease-in-out;
+
+    &__title {
+        display: flex;
+        width: 100%;
+        position: relative;
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+
+    &__btn {
+        position: absolute;
+        right: 0;
+        top: -5px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    &__text {
+        max-height: 100%;
+        flex: 1 1;
+        width: 100%;
+        font-size: 1.25rem;
+        transition: all 500ms ease-in-out;
+    }
+}
+
+.collapsed {
+    max-height: 0;
+}
