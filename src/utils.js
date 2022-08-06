@@ -1,3 +1,7 @@
+import clouds from '../assets/icons/clouds.svg'
+import cloud from '../assets/icons/cloud.svg'
+import sun from '../assets/icons/sun.svg'
+
 export { getWindImg };
 export { getImg };
 export { getDayName };
@@ -36,42 +40,42 @@ const getWindImg = windr => {
   }
   
 const getImg = imgDescription => {
-    let img = '../assets/icons/'
+    let img = ''
 
     switch(imgDescription) {
 
         case 'bewolkt':
-            img += 'clouds.svg'
+            img = clouds
             break
         case 'lichtbewolkt':
-            img += 'cloud.svg'
+            img = cloud
             break
         case 'halfbewolkt':
-            img += 'sun-cloud.svg'
+            img = cloud
             break
         case 'geheelbewolkt':
-            img += 'clouds.svg'
+            img = clouds
+            break
+        case 'zonnig':
+            img = sun
             break
         case 'bewolkt':
-            img += 'clouds.svg'
+            img += '../../assets/icons/clouds.svg'
             break
         case 'bewolkt':
-            img += 'clouds.svg'
+            img += '../../assets/icons/clouds.svg'
             break
         case 'bewolkt':
-            img += 'clouds.svg'
+            img += '../../assets/icons/clouds.svg'
             break
         case 'bewolkt':
-            img += 'clouds.svg'
+            img += '../../assets/icons/clouds.svg'
             break
         case 'bewolkt':
-            img += 'clouds.svg'
+            img += '../../assets/icons/clouds.svg'
             break
         case 'bewolkt':
-            img += 'clouds.svg'
-            break
-        case 'bewolkt':
-            img += 'clouds.svg'
+            img += '../../assets/icons/clouds.svg'
             break
     }
     return img

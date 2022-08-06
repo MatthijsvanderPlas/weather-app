@@ -1,4 +1,4 @@
-@forward "./variables";
+@forward "./variables" as var-*;
 @forward "./weathercard";
 @forward "./alarm";
 @forward "./today";
