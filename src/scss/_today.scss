@@ -28,7 +28,7 @@
         width: 100%;
 
         &-day {
-            min-width: 120px;
+            min-width: 80px;
         }
 
         &-img {
@@ -37,16 +37,18 @@
 
         &-temp {
             margin: auto;
+            width: 25px;
         }
     }
 
     &__windimg path {
+        width: 1px;
     }
 }
 
 .tempbar {
     width: 80px;
-    background-color: #ebebeb;
+    background-color: rgba(235, 235, 235, 0.25);
     height: 6px;
     position: relative;
     margin-inline: 0.5rem;
@@ -73,7 +75,7 @@
 
 .tempbar1 {
     width: 80px;
-    background-color: #ebebeb;
+    background-color: rgba(235, 235, 235, 0.25);
     height: 6px;
     position: relative;
     margin-inline: 0.5rem;
@@ -100,7 +102,7 @@
 
 .tempbar2 {
     width: 80px;
-    background-color: #ebebeb;
+    background-color: rgba(235, 235, 235, 0.25);
     height: 6px;
     position: relative;
     margin-inline: 0.5rem;

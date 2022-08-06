@@ -65,7 +65,7 @@ const createWeatherCard = (info) => {
           <p class="today__overview-temp">${info.d1tmax}°</p>
         </div>
         <div class="today__overview">
-          <p class="today__overview-day">${getDayName(date.getDay()+2 <= 7 ? date.getDay()+2 : 1)}:</p>
+          <p class="today__overview-day">${getDayName(date.getDay()+2 <= 7 ? date.getDay()+2 === 9 ? 2 : 1: 1)}:</p>
           <img class="today__overview-img" src="${getImg(info.d2weer)}" alt="${info.d2weer}">
           <p class="today__overview-temp">${info.d2tmin}°</p>
           <div class="tempbar2">
