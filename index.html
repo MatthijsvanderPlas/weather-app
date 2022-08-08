@@ -13,13 +13,24 @@
     </head>
     <body>
         <header>
-            <nav>
+            <nav class="navbar">
+                <form class="navbar__search">
+                    <input
+                        type="text"
+                        class="navbar__city"
+                        placeholder="City"
+                    />
+                </form>
+                <button class="navbar__btn">+</button>
                 <div class="hamburger">
+                    <span></span>
+                    <span></span>
                     <span></span>
                 </div>
             </nav>
         </header>
         <div id="app"></div>
+
         <script type="module" src="./src/main.js"></script>
     </body>
 </html>

@@ -1,0 +1,15 @@
+Een array met lat,long of locaties. 
+
+standaard word daar de huidige locatie in gezet en op het scherm getoond.
+
+deze array kan ook worden gebruikt om de locatie op het scherm te laten zien en als een button zodat men kan switchen.
+
+remove en add van de array list.
+
+const app = () => {
+    // fetch data current location and add to location array
+    
+    // render weathercard to screen from array[0] (always current location)
+
+    // 
+}
