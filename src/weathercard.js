@@ -2,11 +2,12 @@ import { getImg, getDayName } from './utils'
 
 export { Weather }
 
+let idx = 0;
 const date = new Date()
 
 class Weather {
-  constructor (info, locationsArray) {
-    this.id = locationsArray.length + 1
+  constructor (info) {
+    this.id = idx
     this.plaats = info.plaats // location
     this.temp = info.temp // current temperature
     this.samenv = info.samenv // one word description
@@ -22,17 +23,18 @@ class Weather {
     this.d2tmax = info.d2tmax // max temp tomorrow
     this.alarm = info.alarm // alarm semi boolean 0 or 1
     this.alarmtxt = info.alarmtxt // alarmtext
+    idx++
   }
 
   weatherCardHeader () {
     const header = document.createElement('div')
     header.classList.add('weathercard')
     header.innerHTML = `
-        <p class="weatherheader__title">${this.plaats}</p>
-        <p class="weatherheader__temp">${Math.round(this.temp)}°</p>
-        <p class="weatherheader__short">${this.samenv}</p>
-        <p class="weatherheader__minmax">Max:${this.d0tmax}° Min:${this.d0tmin}°</p>
-          `
+      <p class="weatherheader__title">${this.plaats}</p>
+      <p class="weatherheader__temp">${Math.round(this.temp)}°</p>
+      <p class="weatherheader__short">${this.samenv}</p>
+      <p class="weatherheader__minmax">Max:${this.d0tmax}° Min:${this.d0tmin}°</p>
+      `
     return header
   }
 
@@ -40,32 +42,41 @@ class Weather {
     const forecast = document.createElement('div')
     forecast.classList.add('today')
     forecast.innerHTML = `
-            <p class="today__pred">${this.verw}</p> 
-            <div class="today__overview">
-            <p class="today__overview-day">Vandaag:</p>
-            <img class="today__overview-img" src="${getImg(this.d0weer)}" alt="${this.d0weer}">
-            <p class="today__overview-temp">${this.d0tmin}°</p>
-            <div class="tempbar">
-            <div class="temp"></div>
-            <div class="indicator"></div></div>
-            <p class="today__overview-temp">${this.d0tmax}°</p>
-            </div>
-            <div class="today__overview">
-            <p class="today__overview-day">${getDayName(date.getDay() + 1 <= 7 ? date.getDay() + 1 : 1)}:</p>
-            <img class="today__overview-img" src="${getImg(this.d1weer)}" alt="${this.d1weer}">
-            <p class="today__overview-temp">${this.d1tmin}°</p>
-            <div class="tempbar1">
-            <div class="temp1"></div></div>
-            <p class="today__overview-temp">${this.d1tmax}°</p>
-            </div>
-            <div class="today__overview">
-            <p class="today__overview-day">${getDayName(date.getDay() + 2 > 7 ? date.getDay() + 2 === 9 ? 2 : 1 : date.getDay() + 2)}:</p>
-            <img class="today__overview-img" src="${getImg(this.d2weer)}" alt="${this.d2weer}">
-            <p class="today__overview-temp">${this.d2tmin}°</p>
-            <div class="tempbar2">
-            <div class="temp2"></div></div>
-            <p class="today__overview-temp">${this.d2tmax}°</p>
-            </div>
+      <p class="today__pred">${this.verw}</p> 
+      <div class="today__overview">
+      <p class="today__overview-day">Vandaag:</p>
+      <img class="today__overview-img" src="${getImg(this.d0weer)}" alt="${this.d0weer}">
+      <p class="today__overview-temp">${this.d0tmin}°</p>
+      <div class="tempbar">
+      <div class="temp" style="
+      width: ${((this.d0tmax - this.d0tmin) / 80) * 100 * 2}%;
+      transform: translateX(${Number(this.d0tmin) * 2}px)
+      "></div>
+      <div class="indicator" style="transform: translateX(${Number(this.temp) * 2}px)"></div></div>
+      <p class="today__overview-temp">${this.d0tmax}°</p>
+      </div>
+      <div class="today__overview">
+      <p class="today__overview-day">${getDayName(date.getDay() + 1 <= 7 ? date.getDay() + 1 : 1)}:</p>
+      <img class="today__overview-img" src="${getImg(this.d1weer)}" alt="${this.d1weer}">
+      <p class="today__overview-temp">${this.d1tmin}°</p>
+      <div class="tempbar1">
+      <div class="temp1" style="
+      width: ${((this.d1tmax - this.d1tmin) / 80) * 100 * 2}%;
+      transform: translateX(${Number(this.d1tmin) * 2}px);
+      "></div></div>
+      <p class="today__overview-temp">${this.d1tmax}°</p>
+      </div>
+      <div class="today__overview">
+      <p class="today__overview-day">${getDayName(date.getDay() + 2 > 7 ? date.getDay() + 2 === 9 ? 2 : 1 : date.getDay() + 2)}:</p>
+      <img class="today__overview-img" src="${getImg(this.d2weer)}" alt="${this.d2weer}">
+      <p class="today__overview-temp">${this.d2tmin}°</p>
+      <div class="tempbar2">
+      <div class="temp2" style="
+      width: ${((this.d2tmax - this.d2tmin) / 80) * 100 * 2}%;
+      transform: translateX(${Number(this.d2tmin) * 2}px)
+      "></div></div>
+      <p class="today__overview-temp">${this.d2tmax}°</p>
+      </div>
     `
     return forecast
   }
@@ -74,25 +85,9 @@ class Weather {
     const alarm = document.createElement('div')
     alarm.classList.add('alarm')
     alarm.innerHTML = `
-          <p class="alarm__title">Weather Alert!</p>
-          <p class="alarm__text">${this.alarmtxt}</p>
+          <p class="alarm__title rounded"  id="alarm__title">Weather Alert!<button class="alarm__btn">+</button> </p>
+          <p class="alarm__text collapsed" id="alarm__text">${this.alarmtxt}</p>
           `
     return alarm
-  }
-
-  setTempBars () {
-    const tempBar = document.querySelector('.temp')
-    tempBar.style.width = `${Math.round(((this.d0tmax - this.d0tmin) / 80) * 100 * 2)}%`
-    tempBar.style.transform = `translateX(${Number(this.d0tmin) * 2}px)`
-
-    document.querySelector('.indicator').style.transform = `translateX(${Number(this.temp) * 2}px)`
-
-    const tempBar1 = document.querySelector('.temp1')
-    tempBar1.style.width = `${Math.round(((this.d1tmax - this.d1tmin) / 80) * 100 * 2)}%`
-    tempBar1.style.transform = `translateX(${Number(this.d1tmin) * 2}px)`
-
-    const tempBar2 = document.querySelector('.temp2')
-    tempBar2.style.width = `${Math.round(((this.d2tmax - this.d2tmin) / 80) * 100 * 2)}%`
-    tempBar2.style.transform = `translateX(${Number(this.d2tmin) * 2}px)`
   }
 }

@@ -3,9 +3,17 @@ import { getWeatherData } from './api-client'
 import { getWindImg } from './utils'
 import { Weather } from './weathercard'
 
+
 const entryPointApp = document.querySelector('#app')
 
 const addToDom = (el) => entryPointApp.append(el)
+
+document.querySelector('.navbar__btn').addEventListener('click', () => {
+  const cityToAdd = document.querySelector('.navbar__city').value;
+  fetchData(cityToAdd)
+});
+
+
 
 let locationsArray = []
 
@@ -23,11 +31,17 @@ const fetchData = async (location) => {
     const res = await getWeatherData(location)
     const data = await res.json()
     const info = data.liveweer[0]
-    const current = new Weather(info, locationsArray)
-    locationsArray = [current]
+    const current = new Weather(info)
+    locationsArray = [...locationsArray, current]
+    filterWeatherCard(current.id);
   } catch (err) {
     console.log(err)
   }
+}
+
+const filterWeatherCard = (id = 0) => {
+  const filteredArray = locationsArray.filter(weatherItem => weatherItem.id === id)
+  createWeatherCard(...filteredArray)
 }
 
 const createWeatherCard = (current) => {
@@ -35,10 +49,17 @@ const createWeatherCard = (current) => {
   const header = current.weatherCardHeader()
   addToDom(header)
 
+  if (current.alarm === '1') {
+    const alarm = current.weatherCardAlarm()
+    addToDom(alarm)
+    document.querySelector('.alarm__btn').addEventListener('click', (e)  => {
+      document.getElementById('alarm__text').classList.toggle('collapsed')
+      document.getElementById('alarm__title').classList.toggle('rounded')
+    })
+  }
+
   const forecast = current.weatherCardForecast()
   addToDom(forecast)
-
-  current.setTempBars();
 }
 
 if (navigator.geolocation) {
@@ -46,6 +67,3 @@ if (navigator.geolocation) {
 } else {
   entryPointApp.innerHTML = 'Geolocation not supported or blocked'
 }
-
-
-setTimeout(() => createWeatherCard(locationsArray[0]), 300);
