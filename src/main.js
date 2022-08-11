@@ -60,6 +60,9 @@ const createWeatherCard = (current) => {
 
   const forecast = current.weatherCardForecast()
   addToDom(forecast)
+
+  const extra = current.weatherCardExtra()
+  addToDom(extra)
 }
 
 if (navigator.geolocation) {

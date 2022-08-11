@@ -1,4 +1,5 @@
 import { getImg, getDayName } from './utils'
+import wind from '../assets/icons/wind.svg'
 
 export { Weather }
 
@@ -23,6 +24,7 @@ class Weather {
     this.d2tmax = info.d2tmax // max temp tomorrow
     this.alarm = info.alarm // alarm semi boolean 0 or 1
     this.alarmtxt = info.alarmtxt // alarmtext
+    this.windkmh = info.windkmh // windspeed in km/h
     idx++
   }
 
@@ -89,5 +91,19 @@ class Weather {
           <p class="alarm__text collapsed" id="alarm__text">${this.alarmtxt}</p>
           `
     return alarm
+  }
+
+  weatherCardExtra () {
+    const extra = document.createElement('div')
+    extra.classList.add('extra')
+    extra.innerHTML = `
+      <div class="extra__wrapper">
+        <p class="extra__wind"><img src="${wind}" alt="wind"> Wind </p>
+      </div>
+      <div class="extra__wrapper">
+        <p class="extra__wind"><img src="${wind}" alt="wind"> Wind </p>
+      </div>
+    `
+    return extra
   }
 }
