@@ -1,5 +1,8 @@
 import { getImg, getDayName } from './utils'
+import { getWindImg } from './utils'
 import wind from '../assets/icons/wind.svg'
+import sunset from '../assets/icons/sunset.svg'
+import sunrise from '../assets/icons/sunrise.svg'
 
 export { Weather }
 
@@ -24,7 +27,10 @@ class Weather {
     this.d2tmax = info.d2tmax // max temp tomorrow
     this.alarm = info.alarm // alarm semi boolean 0 or 1
     this.alarmtxt = info.alarmtxt // alarmtext
+    this.windr = info.windr // wind direction
     this.windkmh = info.windkmh // windspeed in km/h
+    this.sup = info.sup // Sun up
+    this.sunder = info.sunder // Sun down
     idx++
   }
 
@@ -94,14 +100,39 @@ class Weather {
   }
 
   weatherCardExtra () {
+    const sup = new Date(`2000-01-01 ${this.sup}:00`)
+    const sunder = new Date(`2000-01-01 ${this.sunder}:00`)
+    const diff = sunder - sup
+    const hours = new Date(diff).getHours()-1
+    let minutes = new Date(diff).getMinutes()
+    if (minutes < 10) minutes = `0${minutes}`
+    const displayDaylightHours = `${hours}:${minutes}`  
+
     const extra = document.createElement('div')
     extra.classList.add('extra')
     extra.innerHTML = `
       <div class="extra__wrapper">
-        <p class="extra__wind"><img src="${wind}" alt="wind"> Wind </p>
+        <div class="extra__wrapper-title">
+          <img src="${wind}" alt="wind" class="extra__wrapper-wind">
+          <p class="extra__wrapper-text">Wind </p>
+          <p class="extra__wrapper-windkm">${this.windkmh} km/u</p>
+        </div>
+        <div>
+          <img src="${getWindImg(this.windr)}" alt="${this.windr}" class="extra__wrapper-compass">
+        </div>
+          <p style="text-align: center">${this.windr}</p>
       </div>
       <div class="extra__wrapper">
-        <p class="extra__wind"><img src="${wind}" alt="wind"> Wind </p>
+        <div class="extra__wrapper-title">
+          <img src="${sunset}" alt="wind" class="extra__wrapper-sun">
+          <p class="extra__wrapper-text">Daglicht </p>
+          <p class="extra__wrapper-windkm">${displayDaylightHours} uren</p>
+        </div>
+        <div>
+          <img src="${sunrise}" alt="sunrise" class="extra__wrapper-sup">
+          <img src="${sunset}" alt="sunrise" class="extra__wrapper-sunder">
+        </div>
+          <p style="text-align: center">${this.sup} ${this.sunder}</p>
       </div>
     `
     return extra

@@ -8,6 +8,15 @@ import snow from '../assets/icons/snowflake.svg'
 import hail from '../assets/icons/hail.svg'
 import fog from '../assets/icons/fog.svg'
 
+import compasseast from '../assets/icons/compass-east.svg'
+import compasswest from '../assets/icons/compass-west.svg'
+import compassnorth from '../assets/icons/compass-north.svg'
+import compasssouth from '../assets/icons/compass-south.svg'
+import compassnortheast from '../assets/icons/compass-north-east.svg'
+import compassnorthwest from '../assets/icons/compass-north-west.svg'
+import compasssoutheast from '../assets/icons/compass-south-east.svg'
+import compasssouthwest from '../assets/icons/compass-south-west.svg'
+
 export { getWindImg }
 export { getImg }
 export { getDayName }
@@ -17,28 +26,28 @@ const getWindImg = windr => {
 
   switch (windr) {
     case 'NW':
-      windimg = 'compass-north-west.svg'
+      windimg = compassnorthwest
       break
-    case 'N':
-      windimg = 'compass-north.svg'
+    case 'Noord':
+      windimg = compassnorth
       break
-    case 'NE':
-      windimg = 'compass-north-east.svg'
+    case 'NO':
+      windimg = compassnortheast
       break
-    case 'E':
-      windimg = 'compass-east.svg'
+    case 'Oost':
+      windimg = compasseast
       break
-    case 'SE':
-      windimg = 'compass-south-east.svg'
+    case 'ZO':
+      windimg = compasssoutheast
       break
-    case 'S':
-      windimg = 'compass-south.svg'
+    case 'Zuid':
+      windimg = compasssouth
       break
-    case 'SW':
-      windimg = 'compass-south-west.svg'
+    case 'ZW':
+      windimg = compasssouthwest
       break
-    case 'W':
-      windimg = 'compass-west.svg'
+    case 'West':
+      windimg = compasswest
       break
   }
 

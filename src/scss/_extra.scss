@@ -5,14 +5,51 @@
     width: 90%;
     margin-top: 1rem;
     margin-inline: auto;
-
     color: white;
     margin-bottom: 1rem;
 
     &__wrapper {
+        display: flex;
+        flex-direction: column;
         width: 48%;
         background-color: rgba(68, 68, 255, 0.5);
         border-radius: 10px;
         padding: 0.5rem;
+
+        &-title {
+            display: flex;
+        }
+
+        &-wind {
+            position: relative;
+            top: -6px;
+            width: 25px;
+        }
+
+        &-sun {
+            position: relative;
+            top: -3px;
+            width: 25px;
+        }
+
+        &-compass {
+            display: block;
+            width: 125px;
+            margin-inline: auto;
+        }
+
+        &-windkm {
+            margin-left: auto;
+        }
+
+        &-sup {
+            width: 75px;
+        }
+
+        &-sunder {
+            position: relative;
+            top: 4px;
+            width: 75px;
+        }
     }
 }
