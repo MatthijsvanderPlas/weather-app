@@ -34,7 +34,7 @@
 
         &-compass {
             display: block;
-            width: 125px;
+            width: 70px;
             margin-inline: auto;
         }
 
@@ -43,13 +43,15 @@
         }
 
         &-sup {
-            width: 75px;
+            width: 70px;
+            margin: auto;
         }
 
         &-sunder {
             position: relative;
+            margin: auto;
             top: 4px;
-            width: 75px;
+            width: 70px;
         }
     }
 }

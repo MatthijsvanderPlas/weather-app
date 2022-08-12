@@ -28,6 +28,7 @@ class Weather {
     this.alarm = info.alarm // alarm semi boolean 0 or 1
     this.alarmtxt = info.alarmtxt // alarmtext
     this.windr = info.windr // wind direction
+    this.windrgr = info.windrgr // wind direction in degrees
     this.windkmh = info.windkmh // windspeed in km/h
     this.sup = info.sup // Sun up
     this.sunder = info.sunder // Sun down
@@ -125,16 +126,20 @@ class Weather {
       <div class="extra__wrapper">
         <div class="extra__wrapper-title">
           <img src="${sunset}" alt="wind" class="extra__wrapper-sun">
-          <p class="extra__wrapper-text">Daglicht </p>
+          <p class="extra__wrapper-text">Zon </p>
           <p class="extra__wrapper-windkm">${displayDaylightHours} uren</p>
         </div>
-        <div>
+        <div style="margin: 0 auto;">
           <img src="${sunrise}" alt="sunrise" class="extra__wrapper-sup">
           <img src="${sunset}" alt="sunrise" class="extra__wrapper-sunder">
         </div>
-          <p style="text-align: center">${this.sup} ${this.sunder}</p>
+          <p style="text-align: center; display: inline;">${this.sup}       ${this.sunder}</p>
       </div>
     `
     return extra
+  }
+
+  windDial () {
+
   }
 }
