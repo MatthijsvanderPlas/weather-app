@@ -1,6 +1,7 @@
 .extra {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
     justify-content: space-between;
     width: 90%;
     margin-top: 1rem;
@@ -11,13 +12,17 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        width: 48%;
+        width: 100%;
         background-color: rgba(68, 68, 255, 0.5);
         border-radius: 10px;
         padding: 0.5rem;
 
         &-title {
             display: flex;
+        }
+
+        &-text {
+            font-size: 0.9rem;
         }
 
         &-wind {
@@ -52,6 +57,18 @@
             margin: auto;
             top: 4px;
             width: 70px;
+        }
+
+        &-lv {
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 1.75rem;
+        }
+
+        &-zicht {
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 1.75rem;
         }
     }
 }

@@ -14,18 +14,23 @@
     <body>
         <header>
             <nav class="navbar">
-                <form class="navbar__search">
-                    <input
-                        type="text"
-                        class="navbar__city"
-                        placeholder="City"
-                    />
-                </form>
-                <button class="navbar__btn">+</button>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
+                </div>
+                <div class="navbar__menu">
+                    <form>
+                        <input
+                            class="navbar__city"
+                            type="text"
+                            placeholder="Add City"
+                        />
+                        <input class="navbar__btn" type="submit" value="Add" />
+                    </form>
+                    <ul class="navbar__menu-list">
+                        <li class="navbar__menu-item">Current</li>
+                    </ul>
                 </div>
             </nav>
         </header>

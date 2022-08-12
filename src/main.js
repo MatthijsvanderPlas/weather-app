@@ -1,6 +1,5 @@
 import './scss/main.scss'
 import { getWeatherData } from './api-client'
-import { getWindImg } from './utils'
 import { Weather } from './weathercard'
 
 
@@ -8,10 +7,10 @@ const entryPointApp = document.querySelector('#app')
 
 const addToDom = (el) => entryPointApp.append(el)
 
-document.querySelector('.navbar__btn').addEventListener('click', () => {
-  const cityToAdd = document.querySelector('.navbar__city').value;
-  fetchData(cityToAdd)
-});
+// document.querySelector('.navbar__btn').addEventListener('click', () => {
+//   const cityToAdd = document.querySelector('.navbar__city').value;
+//   fetchData(cityToAdd)
+// });
 
 
 

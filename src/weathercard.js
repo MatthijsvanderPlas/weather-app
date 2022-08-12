@@ -32,6 +32,9 @@ class Weather {
     this.windkmh = info.windkmh // windspeed in km/h
     this.sup = info.sup // Sun up
     this.sunder = info.sunder // Sun down
+    this.lv = info.lv // Humidity
+    this.dauwp = info.dauwp // Dew point
+    this.zicht = info.zicht // Sight in km
     idx++
   }
 
@@ -115,7 +118,7 @@ class Weather {
       <div class="extra__wrapper">
         <div class="extra__wrapper-title">
           <img src="${wind}" alt="wind" class="extra__wrapper-wind">
-          <p class="extra__wrapper-text">Wind </p>
+          <p>Wind </p>
           <p class="extra__wrapper-windkm">${this.windkmh} km/u</p>
         </div>
         <div>
@@ -126,7 +129,7 @@ class Weather {
       <div class="extra__wrapper">
         <div class="extra__wrapper-title">
           <img src="${sunset}" alt="wind" class="extra__wrapper-sun">
-          <p class="extra__wrapper-text">Zon </p>
+          <p>Zon </p>
           <p class="extra__wrapper-windkm">${displayDaylightHours} uren</p>
         </div>
         <div style="margin: 0 auto;">
@@ -134,6 +137,25 @@ class Weather {
           <img src="${sunset}" alt="sunrise" class="extra__wrapper-sunder">
         </div>
           <p style="text-align: center; display: inline;">${this.sup}       ${this.sunder}</p>
+      </div>
+      <div class="extra__wrapper">
+        <div class="extra__wrapper-title">
+          <p>Luchtvochtigheid </p>
+        </div>
+        <div style="margin: 0 auto;">
+          <p class="extra__wrapper-lv">${this.lv}%</p>
+        </div>
+        <div>
+          <p class="extra__wrapper-text">Het dauwpunt is nu ${this.dauwp}°</p>
+        </div>
+      </div>
+      <div class="extra__wrapper">
+        <div class="extra__wrapper-title">
+          <p>Zicht </p>
+          </div>
+          <div style="margin: 0 auto;">
+          <p class="extra__wrapper-zicht">${this.zicht} km</p>
+        </div>
       </div>
     `
     return extra
