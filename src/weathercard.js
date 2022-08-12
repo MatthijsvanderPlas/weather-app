@@ -97,7 +97,11 @@ class Weather {
     const alarm = document.createElement('div')
     alarm.classList.add('alarm')
     alarm.innerHTML = `
-          <p class="alarm__title rounded"  id="alarm__title">Weather Alert!<button class="alarm__btn">+</button> </p>
+          <p class="alarm__title rounded"  id="alarm__title">Weather Alert!<button class="alarm__btn alarm__btn-toggle" onClick="()  => {
+            document.getElementById('alarm__text').classList.toggle('collapsed')
+            document.getElementById('alarm__title').classList.toggle('rounded')
+            document.querySelector('.alarm__btn').classList.toggle('alarm__btn-toggle')
+          }"></button> </p>
           <p class="alarm__text collapsed" id="alarm__text">${this.alarmtxt}</p>
           `
     return alarm

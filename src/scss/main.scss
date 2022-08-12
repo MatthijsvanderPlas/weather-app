@@ -9,6 +9,7 @@
 
 body {
     display: grid;
+    grid-template-rows: 50px 1fr;
     background: i.$var-clearsky;
     width: 100%;
     min-height: 100vh;

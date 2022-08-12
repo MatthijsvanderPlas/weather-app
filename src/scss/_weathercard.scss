@@ -3,6 +3,7 @@
     flex-direction: column;
     min-width: 350px;
     width: 100%;
+    height: auto;
     max-width: 60rem;
     margin: 0 auto;
     color: #fff;
@@ -30,5 +31,6 @@
     &__minmax {
         font-size: 1rem;
         text-align: center;
+        padding-bottom: 1rem;
     }
 }

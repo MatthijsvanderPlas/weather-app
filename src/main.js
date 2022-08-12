@@ -7,12 +7,18 @@ const entryPointApp = document.querySelector('#app')
 
 const addToDom = (el) => entryPointApp.append(el)
 
-// document.querySelector('.navbar__btn').addEventListener('click', () => {
-//   const cityToAdd = document.querySelector('.navbar__city').value;
-//   fetchData(cityToAdd)
-// });
+document.querySelector('.hamburger').addEventListener('click', () => {
+  const hamburger = document.querySelector('.hamburger')
+  hamburger.classList.toggle('show')
+  const menu = document.querySelector('.navbar__menu')
+  menu.classList.toggle('navbar__menu-show')
 
+});
 
+document.querySelector('.navbar__btn').addEventListener('click', (e) => {
+  e.preventDefault();
+  
+})
 
 let locationsArray = []
 
@@ -51,10 +57,6 @@ const createWeatherCard = (current) => {
   if (current.alarm === '1') {
     const alarm = current.weatherCardAlarm()
     addToDom(alarm)
-    document.querySelector('.alarm__btn').addEventListener('click', (e)  => {
-      document.getElementById('alarm__text').classList.toggle('collapsed')
-      document.getElementById('alarm__title').classList.toggle('rounded')
-    })
   }
 
   const forecast = current.weatherCardForecast()
