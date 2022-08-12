@@ -104,8 +104,8 @@ class Weather {
   }
 
   weatherCardExtra () {
-    const sup = new Date(`2000-01-01 ${this.sup}:00`)
-    const sunder = new Date(`2000-01-01 ${this.sunder}:00`)
+    const sup = new Date(`2000-01-01T${this.sup}:00`)
+    const sunder = new Date(`2000-01-01T${this.sunder}:00`)
     const diff = sunder - sup
     const hours = new Date(diff).getHours()-1
     let minutes = new Date(diff).getMinutes()
