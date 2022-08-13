@@ -8,16 +8,17 @@ const entryPointApp = document.querySelector('#app')
 const addToDom = (el) => entryPointApp.append(el)
 
 document.querySelector('.hamburger').addEventListener('click', () => {
-  const hamburger = document.querySelector('.hamburger')
-  hamburger.classList.toggle('show')
-  const menu = document.querySelector('.navbar__menu')
-  menu.classList.toggle('navbar__menu-show')
+  toggleMenu();
   fillUlList();
 });
 
 document.querySelector('.navbar__btn').addEventListener('click', (e) => {
   e.preventDefault();
-
+  clearEntryPoint();
+  const queryParam = document.querySelector('.navbar__city')
+  toggleMenu();
+  fetchData(queryParam.value)
+  queryParam.value = '';
 })
 
 let locationsArray = []
@@ -28,9 +29,21 @@ const fillUlList = () => {
   locationsArray.forEach(location => {
     const li = document.createElement('li')
     li.classList.add('navbar__menu-item')
-    li.innerHTML= `<button class="navbar__menu-btn">${location.plaats}</button>`
+    li.innerHTML= `<button class="navbar__menu-btn" id="${location.id}">${location.plaats}</button>`
     parentInput.appendChild(li)
+    document.getElementById(location.id).addEventListener('click', () => {
+      clearEntryPoint();
+      toggleMenu();
+      createWeatherCard(location)
+    })
   })
+}
+
+const toggleMenu = () => {
+  const hamburger = document.querySelector('.hamburger')
+  hamburger.classList.toggle('show')
+  const menu = document.querySelector('.navbar__menu')
+  menu.classList.toggle('navbar__menu-show')
 }
 
 const clearEntryPoint = () => {
