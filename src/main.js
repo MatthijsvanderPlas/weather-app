@@ -17,7 +17,7 @@ document.querySelector('.hamburger').addEventListener('click', () => {
 
 document.querySelector('.navbar__btn').addEventListener('click', (e) => {
   e.preventDefault();
-  
+
 })
 
 let locationsArray = []
@@ -56,7 +56,7 @@ const createWeatherCard = (current) => {
 
   if (current.alarm === '1') {
     const alarm = current.weatherCardAlarm()
-    addToDom(alarm)
+    addToDom(alarm) 
   }
 
   const forecast = current.weatherCardForecast()
