@@ -12,7 +12,7 @@ document.querySelector('.hamburger').addEventListener('click', () => {
   hamburger.classList.toggle('show')
   const menu = document.querySelector('.navbar__menu')
   menu.classList.toggle('navbar__menu-show')
-
+  fillUlList();
 });
 
 document.querySelector('.navbar__btn').addEventListener('click', (e) => {
@@ -21,6 +21,17 @@ document.querySelector('.navbar__btn').addEventListener('click', (e) => {
 })
 
 let locationsArray = []
+
+const fillUlList = () => {
+  const parentInput = document.querySelector('.navbar__menu-list')
+  parentInput.innerHTML = ''
+  locationsArray.forEach(location => {
+    const li = document.createElement('li')
+    li.classList.add('navbar__menu-item')
+    li.innerHTML= `<button class="navbar__menu-btn">${location.plaats}</button>`
+    parentInput.appendChild(li)
+  })
+}
 
 const clearEntryPoint = () => {
   entryPointApp.innerHTML = ''

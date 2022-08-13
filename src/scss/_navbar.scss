@@ -40,8 +40,20 @@
         }
 
         &-item {
+            padding-top: 0.5rem;
             width: calc(100vw - 4rem);
             border-bottom: 1px solid black;
+        }
+
+        &-btn {
+            border: none;
+            background: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            &:hover {
+                color: rgb(255, 89, 89);
+            }
         }
     }
 
