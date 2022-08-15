@@ -2,7 +2,7 @@
     position: relative;
     margin: auto;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     width: 75px;
     height: 75px;
     border: 5px solid #cecece;
@@ -12,9 +12,7 @@
         width: 70px;
         height: 70px;
         border-radius: 145px;
-        // background-color: rgba(68, 68, 255, 0.5);
         z-index: 1;
-        // transform: translateX(5px) translateY(5px);
     }
 
     &__arrow {
