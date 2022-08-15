@@ -7,6 +7,7 @@ import sunrise from '../assets/icons/sunrise.svg'
 export { Weather }
 
 let idx = 0;
+
 const date = new Date()
 
 class Weather {

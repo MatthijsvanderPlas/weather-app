@@ -88,7 +88,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 3;
 }
 
 .indicator1 {
@@ -98,7 +98,7 @@
     background-color: white;
     position: absolute;
     top: -1px;
-    z-index: 20;
+    z-index: 4;
 }
 
 .tempbar2 {
@@ -115,7 +115,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 3;
 }
 
 .indicator2 {
@@ -125,5 +125,5 @@
     background-color: white;
     position: absolute;
     top: -1px;
-    z-index: 20;
+    z-index: 4;
 }
