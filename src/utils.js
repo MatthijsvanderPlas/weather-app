@@ -8,51 +8,8 @@ import snow from '../assets/icons/snowflake.svg'
 import hail from '../assets/icons/hail.svg'
 import fog from '../assets/icons/fog.svg'
 
-import compasseast from '../assets/icons/compass-east.svg'
-import compasswest from '../assets/icons/compass-west.svg'
-import compassnorth from '../assets/icons/compass-north.svg'
-import compasssouth from '../assets/icons/compass-south.svg'
-import compassnortheast from '../assets/icons/compass-north-east.svg'
-import compassnorthwest from '../assets/icons/compass-north-west.svg'
-import compasssoutheast from '../assets/icons/compass-south-east.svg'
-import compasssouthwest from '../assets/icons/compass-south-west.svg'
-
-export { getWindImg }
 export { getImg }
 export { getDayName }
-
-const getWindImg = windr => {
-  let windimg = ''
-
-  switch (windr) {
-    case 'NW':
-      windimg = compassnorthwest
-      break
-    case 'Noord':
-      windimg = compassnorth
-      break
-    case 'NO':
-      windimg = compassnortheast
-      break
-    case 'Oost':
-      windimg = compasseast
-      break
-    case 'ZO':
-      windimg = compasssoutheast
-      break
-    case 'Zuid':
-      windimg = compasssouth
-      break
-    case 'ZW':
-      windimg = compasssouthwest
-      break
-    case 'West':
-      windimg = compasswest
-      break
-  }
-
-  return windimg
-}
 
 const getImg = imgDescription => {
   let img = ''

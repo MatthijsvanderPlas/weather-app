@@ -1,5 +1,4 @@
 import { getImg, getDayName } from './utils'
-import { getWindImg } from './utils'
 import wind from '../assets/icons/wind.svg'
 import sunset from '../assets/icons/sunset.svg'
 import sunrise from '../assets/icons/sunrise.svg'
@@ -127,7 +126,14 @@ class Weather {
           <p class="extra__wrapper-windkm">${this.windkmh} km/u</p>
         </div>
         <div>
-          <img src="${getWindImg(this.windr)}" alt="${this.windr}" class="extra__wrapper-compass">
+          <div class="compass">
+          <div class="compass__circle"> </div>
+          <div class="compass__arrow" style="transform: rotate(${this.windrgr}deg)"> </div>
+          <div class="wrap compass__n"></div>
+          <div class="wrap compass__o"></div>
+          <div class="wrap compass__z"></div>
+          <div class="wrap compass__w"></div>
+      </div>
         </div>
           <p style="text-align: center">${this.windr}</p>
       </div>
