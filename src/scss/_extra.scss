@@ -40,12 +40,13 @@
         &-compass {
             display: block;
             width: 70px;
+            margin-top: .5rem;
             margin-inline: auto;
         }
 
         &-windkm {
             margin-left: auto;
-            margin-top: .5rem;
+           
             font-size: 0.75rem;
         }
 
